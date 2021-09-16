@@ -1,5 +1,5 @@
 # ACG Project: DIY Mars Probe
-## AWS Greengrass IoT v2 with a Raspberry Pi
+## AWS Greengrass IoT v2 with a Raspberry Pi Zero W
 
 This repo is the companion to the [ACG Project: DIY Mars Probe](https://acloud.guru/series/acg-projects/view/405) and a two-part blog published on [Code Project](https://www.codeproject.com/).
 
