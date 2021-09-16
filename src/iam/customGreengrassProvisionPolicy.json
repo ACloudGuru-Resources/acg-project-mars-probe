@@ -1,0 +1,47 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iot:AddThingToThingGroup",
+                "iot:AttachPolicy",
+                "iot:AttachThingPrincipal",
+                "iot:CreateKeysAndCertificate",
+                "iot:CreatePolicy",
+                "iot:CreateRoleAlias",
+                "iot:CreateThing",
+                "iot:CreateThingGroup",
+                "iot:DescribeEndpoint",
+                "iot:DescribeRoleAlias",
+                "iot:DescribeThingGroup",
+                "iot:GetPolicy",
+                "iam:GetRole",
+                "iam:CreateRole",
+                "iam:PassRole",
+                "iam:CreatePolicy",
+                "iam:AttachRolePolicy",
+                "iam:GetPolicy",
+                "sts:GetCallerIdentity"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "DeployDevTools",
+            "Effect": "Allow",
+            "Action": [
+                "greengrass:CreateDeployment",
+                "iot:CancelJob",
+                "iot:CreateJob",
+                "iot:DeleteThingShadow",
+                "iot:DescribeJob",
+                "iot:DescribeThing",
+                "iot:DescribeThingGroup",
+                "iot:GetThingShadow",
+                "iot:UpdateJob",
+                "iot:UpdateThingShadow"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

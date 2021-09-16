@@ -1,0 +1,45 @@
+{
+    "RecipeFormatVersion": "2020-01-25",
+    "ComponentName": "simpleSubPub",
+    "ComponentVersion": "1.0.0",
+    "ComponentType": "aws.greengrass.generic",
+    "ComponentDescription": "A component that subscribes to a topic and response to messages",
+    "ComponentPublisher": "<Name>",
+    "ComponentConfiguration": {
+        "DefaultConfiguration": {
+            "accessControl": {
+                "aws.greengrass.ipc.mqttproxy": {
+                    "com.example.MyIoTCorePubSubComponent:mqttproxy:1": {
+                        "policyDescription": "Allows access to publish/subscribe to all topics.",
+                        "operations": [
+                            "aws.greengrass#PublishToIoTCore",
+                            "aws.greengrass#SubscribeToIoTCore"
+                        ],
+                        "resources": [
+                            "*"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "ComponentDependencies": {
+        "aws.greengrass.TokenExchangeService": {
+            "VersionRequirement": ">=2.0.0 <3.0.0",
+            "DependencyType": "HARD"
+        }
+    },
+    "Manifests": [
+        {
+            "Lifecycle": {
+                "Install": "pip3 install --user awsiotsdk boto3",
+                "Run": "python3 -u {artifacts:path}/simplePubSub.py <your bucket here> marsprobes/request marsprobes/response\n"
+            },
+            "Artifacts": [
+                {
+                    "Uri": "s3://<your bucket here>/artifacts/simplePubSub/1.0.0/simplePubSub.py"
+                }
+            ]
+        }
+    ]
+}
