@@ -4,6 +4,7 @@ import time
 import traceback
 import json
 import boto3
+import botocore
 import sys
 import os
 
@@ -56,8 +57,8 @@ def upload_file(bucket, data):
                              Key=filename, ACL='public-read')
         url = 'https://{}.s3.amazonaws.com/{}'.format(BUCKET, filename)
 
-    except Exception as e:
-        url = 'Failed to capture image'
+    except botocore.exceptions.ClientError as e:
+        url = e.response
 
     finally:
         return url

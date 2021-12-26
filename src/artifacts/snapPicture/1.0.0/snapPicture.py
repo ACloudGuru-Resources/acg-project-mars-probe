@@ -4,6 +4,7 @@ import time
 import traceback
 import json
 import boto3
+import botocore
 import sys
 import os
 import picamera
@@ -91,8 +92,8 @@ def upload_file(bucket, pic_filepath):
                               ExtraArgs={'ACL': 'public-read'})
         url = 'https://{}.s3.amazonaws.com/{}'.format(BUCKET, filename)
 
-    except Exception as e:
-        url = 'Captured image but had an issue uploading.'
+    except botocore.exceptions.ClientError as e:
+        url = e.response
 
     finally:
         return url
